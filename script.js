@@ -3,7 +3,7 @@ try {
 	if (pathName.length === 40) {
 		var nextLogoURL = chrome.extension.getURL("icon16.png");
 		var torrentName = document.querySelector(".download h2 span").innerHTML.replace(/<[^>]*>/g, "").replace(/\[(.*?)\]/g, "").replace(/\((.*?)\)/g, "");
-		var rx = /S?0*(\d+)?[xE]0*(\d+)/i; // gets SxxExx
+		var rx = /S?0*(\d+)?(?:E|Ep)0*(\d+)/i; // gets SxxExx or SxxEPxx
 		var episodeData = rx.exec(torrentName);
 		
 		if (episodeData != undefined && episodeData.length > 0) {
@@ -52,9 +52,9 @@ try {
 			// get full next episode id
 			var nextEpisodeFull = "S" + thisSeason + "E" + nextEpisode;
 			var nextSeasonFull = "S" + nextSeason + "E01";
-			var nameOfShow = searchName[1].split(episodeData[0])[0].replace(/\+/g, "").replace(/%20/g, "");
+			var nameOfShow = searchName[1].split(episodeData[0])[0].replace(/\+/g, " ").replace(/%20/g, " ");
 			
-			var nextEpisodeSearch = nameOfShow + " " + nextEpisodeFull;
+			var nextEpisodeSearch = nameOfShow + nextEpisodeFull;
 			var nextEpisodeLink = "/search?q=" + nextEpisodeSearch;
 			
 			var nextSeasonSearch = nameOfShow + " " + nextSeasonFull;
