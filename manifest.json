@@ -1,0 +1,27 @@
+{
+  "content_scripts": [
+    {
+      "js": [
+        "script.js"
+      ],
+      "run_at": "document_end",
+      "matches": [
+        "*://torrentz.eu/*",
+        "*://torrentz.ch/*",
+        "*://torrentz.me/*",
+        "*://torrentz.in/*",
+        "*://torrentz.com/*"
+      ]
+    }
+  ],
+  "description": "Adds next episode links to torrent files on Torrentz.",
+  "manifest_version": 2,
+  "name": "Next Episode for Torrentz",
+  "version": "1.0.0",
+  "web_accessible_resources": [
+    "icon16.png"
+  ],
+  "icons": {
+    "16": "icon16.png"
+  }
+}
