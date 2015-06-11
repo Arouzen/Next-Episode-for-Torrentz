@@ -1,4 +1,4 @@
-try {
+﻿try {
 	var pathName = location.pathname.replace(/\//g, "");
 	if (pathName.length === 40) {
 		var nextLogoURL = chrome.extension.getURL("icon16.png");
@@ -26,7 +26,7 @@ try {
 			
 			document.querySelector(".download dl").insertAdjacentHTML("afterend", '<dl><dt><a href="' + nextEpisodeLink + '"><span class="u" style="background: transparent url(\'' + nextLogoURL + '\') no-repeat 5px center;">' + nextEpisodeSearch.replace(/\./g, " ") + '</span></a></dt></dl>');
 		}
-	} else if (pathName.match(/search/i)) {
+	} else if (pathName.match(/search/i) || pathName.match(/any/i)) {
 		var rx = /q?=(.*?)(&|$)/; // everything between "q?=" to ("&" or end of line)
 		var searchName = rx.exec(location.search);
 		
