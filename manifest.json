@@ -15,7 +15,7 @@
     }
   ],
   "description": "Adds next episode links to torrent files on Torrentz.",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Next Episode for Torrentz",
   "version": "1.0.2",
   "web_accessible_resources": [
